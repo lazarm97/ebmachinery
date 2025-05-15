@@ -9,6 +9,18 @@
 
 window.addEventListener('DOMContentLoaded', event => {
 
+    document.getElementById('showMoreBtn').addEventListener('click', function () {
+        const hiddenItems = document.querySelectorAll('.hidden-product.d-none');
+        for (let i = 0; i < 9 && i < hiddenItems.length; i++) {
+            hiddenItems[i].classList.remove('d-none');
+        }
+
+        // Sakrij dugme ako nema više skrivenih proizvoda
+        if (document.querySelectorAll('.hidden-product.d-none').length === 0) {
+            this.style.display = 'none';
+        }
+    });
+
     // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
